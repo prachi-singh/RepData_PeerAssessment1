@@ -113,7 +113,7 @@ sum(is.na(data))
 
 ```
 
-To impute these missing values, we might use the average daily activity pattern (calculated above). For every missing value in the original data set, the average number of steps in that 5-min interval is used and a new data frame `imputedata` is created. This procedure should be valid if the person has a daily routine, that is, an activity pattern that is similar over multiple days. Instead of missing values, the new data set will contain a typical value of that 5-min interval.
+One strategy to impute these missing values is using the average daily activity pattern (calculated above) to transform the original dataset to replace NAs with average values for respective intervals using the transform function. For every missing value in the original data set, average number of steps in that 5-min interval will be used and a new data frame `imputedata` will be created. Consequently, instead of missing values, the new data set will contain a typical value of that 5-min interval. This method should be valid if the subject has a daily routine, that is, an activity pattern that is similar over multiple days.
 
 ```{r}
 imputedata <- transform(data, steps=ifelse(is.na(steps), avg_steps, steps))

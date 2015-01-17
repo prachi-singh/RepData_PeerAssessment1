@@ -17,7 +17,7 @@ In this assignment, we aim to explore the data for statistical values such as to
 
 ## Loading and preprocessing the data
 
-The data file activity.csv is extracted from the compressed file `activity.zip` and then loaded into the data frame `data`. The interval data are transformed from the original format (hhmm, no digits for leading zeroes) into minutes-passed since the beginning of the day (00:00). In this way, the intervals are spread evenly over the day (and gaps in the original data like 50, 55, 100, 105 are transformed into 50, 55, 60, 65). The structure of the data frame and a summary statistic are displayed.
+The data file activity.csv is extracted from the compressed file `activity.zip` and then loaded into the data frame `data`. The interval data are transformed from the original format (hhmm, no digits for leading zeroes) into minutes-passed since the beginning of the day (00:00). This makes the intervals easier to work with, changing them from base 6 to base 10. The structure of the data frame and a summary statistic are displayed.
 
 
 
@@ -253,4 +253,4 @@ g + geom_line() + facet_grid(weekday ~ .) +
 There is a distinct peak in the weekday mornings leading to higher morning activity on the weekdays. However, overall activity is higher on the weekends. Based on this differential weekday/weekend activity patterns, a more precise imputation strategy could be devised to use weekend interval averages for imputing weekend activity and weekday interval averages for imputing weekday activity. 
 
 ==================  
-Created by Prachi Singh on Sat Jan 17 02:36:06 2015
+Created by Prachi Singh on Sat Jan 17 02:40:53 2015

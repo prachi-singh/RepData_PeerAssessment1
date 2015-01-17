@@ -72,7 +72,6 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
-<p>The data file activity.csv is extracted from the compressed file <code>activity.zip</code> and then loaded into the data frame <code>data</code>. The interval data are transformed from the original format (hhmm, no digits for leading zeroes) into minutes-passed since the beginning of the day (00:00). In this way, the intervals are spread evenly over the day (and gaps in the original data like 50, 55, 100, 105 are transformed into 50, 55, 60, 65). The structure of the data frame and a summary statistic are displayed.</p>
 <pre class="r"><code>data &lt;- read.csv(unz(&quot;activity.zip&quot;, &quot;activity.csv&quot;), colClasses=c(&quot;integer&quot;, &quot;Date&quot;, &quot;integer&quot;))
 
 data$interval &lt;- 60*floor((data$interval+1)/100) + (data$interval %% 100)

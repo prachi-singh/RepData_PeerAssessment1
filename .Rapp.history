@@ -1,0 +1,270 @@
+?tapply
+table(flags$landmass)
+table(flags$animate)
+tapply(flags$animate, flags$landmass, mean)
+tapply(flags$population, flags$red, summary)
+tapply(flags$population, flags$landmass, summary)
+library(datasets)
+data(Flags)
+data(flags)
+data(mtcars)
+mtcars
+tapply(mtcars$wt, mtcars$cyl, mean)
+tapply(mtcars$wt, mtcars$cyl, mtcars$hp, mean)
+tapply(c(mtcars$wt, mtcars$hp), mtcars$cyl, mean)
+?matrix
+m <- matrix(1:10, 2, 5)
+m
+solve(m)
+m <- matrix(1:10, 2, 2)
+m
+solve(m)
+by()
+quit()
+install.packages("RMySQL")
+library(RMySQL)
+ucscDb <- dbConnect(MySQL(),user="genome", host="genome-mysql.cse.ucsc.edu")
+result <- dbGetQuery(ucscDb,"show databases;"); dbDisconnect(ucscDb);
+result
+hg19 <- dbConnect(MySQL(),user="genome", db="hg19", host="genome-mysql.cse.ucsc.edu")
+allTables <- dbListTables(hg19)
+length(allTables)
+allTables[1:5]
+library(httr)
+oauth_endpoints("github")
+?oauth_app
+myapp <- oauth_app("github", "ddddbc669345226218c6", secret="4e36dd7d335d536f47573e15321e51095a6a4732")
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
+gtoken <- config(token=github_token)
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
+library(httr)
+library(httpuv)
+install.package("httpuv")
+install.packages("httpuv")
+library(httpuv)
+oauth_endpoints("github")
+myapp <- oauth_app("github", "ddddbc669345226218c6", secret="4e36dd7d335d536f47573e15321e51095a6a4732")
+github_token <- oauth2.0_token(oauth_endpoints("github"), myapp)
+gtoken <- config(token=github_token)
+req <- GET("https://api.github.com/users/jtleek/repos", gtoken)
+stop_for_status(req)
+content(req)
+req2 <- jsonlite::fromJSON(toJSON(req))
+?json
+??json
+str(req)
+library(jsonlite)
+req2 <- jsonlite::fromJSON(toJSON(req))
+?jsonlite
+?tojson
+?fromjson
+?fromJSON
+req2 <- fromJSON(toJSON(req))
+req
+str(req)
+class(req)
+req$headers$"content-type"
+req2 <- toJSON(req)
+req2 <- fromJSON(req)
+?fromJSON
+req2 <- toJSON(req, pretty=TRUE)
+content(req, "text")
+str(req)
+class(req)
+req2 <- fromJSON(toJSON(req))
+?asJSON
+req2 <- toJSON(req)
+library(rjson)
+install.packages("rjson")
+library(rjson)
+req2 <- fromJSON(toJSON(req))
+content(req, type="application/json"")
+content(req, type="application/json")
+req2 <- fromJSON(toJSON(req))
+content(req, as="raw",type="application/json")
+req2 <- fromJSON(toJSON(req))
+content(req, "text")
+req2 <- fromJSON(req)
+class(req)
+str(req)
+content(req)
+class(req)
+str(req)
+jsoned <- jsonlite::fromJSON(toJSON(req))
+library(jsonlite)
+uninstall(rjson)
+?install
+?install.packages
+remove.packages(rjson)
+remove.packages("rjson")
+library(jsonlite)
+req2 <- fromJSON(toJSON(req))
+req$headers$"content-type"
+req2 <- fromJSON(toJSON(req$headers$"content-type"))
+req2
+req
+req$headers
+req$"content-type"
+req$headers
+class(req)
+?fromJSON
+jsoned <- toJSON(req)
+library(swirl)
+ls()
+rm(list=ls())
+ls()
+install_from_swirl("Getting and Cleaning Data")
+swirl()
+install_from_swirl("Data Analysis")
+swirl()
+?hist
+setwd("~/DataScienceJHU/Reproducible-Research/RepData_PeerAssessment1/")
+reading <- read.csv("activity.csv")
+head(reading)
+hist(reading$steps)
+?lubridate
+install.packages("lubridate")
+library(lubridate)
+?lubridate
+now
+now()
+?lubridate
+hist(reading$date)
+?ggplot
+library(ggplot2)
+?ggplot2
+install.packages("ggplot2")
+library(ggplot2)
+?ggplot
+ggplot(reading)
+?floor
+data <- read.csv(unz("activity.zip", "activity.csv"), colClasses=c("integer", "Date", "integer"))#
+#
+data$interval <- 60*floor((data$interval+1)/100) + (data$interval %% 100)#
+#
+str(data)
+total_steps <- tapply(data$steps, data$date, sum, na.rm=TRUE)
+total_steps
+hist(total_steps)
+class(total_steps)
+str(total_steps)
+names(total_steps)
+step_median <- median(total_steps)
+step_median
+?median
+step_mean
+step_mean <- mean(total_steps)
+step_mean
+?round
+?which
+x <- c(3, 4, 5, 6, 8, 3, 4, 2, 5, 5, 6, 6)
+mode(x)
+median(x)
+mean(x)
+which(x==max(x))
+which(LETTERS == "R")
+x <- c(3, 4, 5, 6, 8, 3, 4, 2, 5, 5, 6, 6, 20)
+which(x==max(x))
+x <- c(3, 4, 5, 6, 8, 3, 4, 20, 5, 5, 6, 6, 20)
+which(x==max(x))
+x[13]
+head(data)
+tail(data)
+avg_steps
+avg_steps <- tapply(data$steps, data$interval, mean, na.rm=TRUE)
+avg_steps
+head(avg_steps)
+count(x)
+sum(data$steps==NA)
+data$steps
+is.na(data)
+is.na(data$steps)
+sum(is.na(data$date))
+sum(is.na(data$interval))
+sum(is.na(data$steps))
+?transfor
+?transform
+data2 <- data
+head(data2)
+avg_steps
+head(avg_steps)
+data2$steps[is.na(data2$steps)]
+sum(data2$steps[is.na(data2$steps)] == TRUE)
+sum(data2$steps[is.na(data2$steps)])
+sum(data2$steps[is.na(data2$steps)] == NA)
+sum(data2$steps[is.na(data2$steps)] == "NA")
+data2$steps[is.na(data2$steps)] <- avg_steps$fill[match(data2$steps,avg_steps)][is.na(data2$steps)]
+?match
+?merge
+class(data$steps)
+class(data)
+class(avg_steps)
+match(data2$steps, avg_steps)
+match(data2$steps, is.na)
+match(data2$steps, c(NA))
+match(data2$steps, NA)
+?count
+count.na(match(data2$steps, NA))
+na.count(match(data2$steps, NA))
+?na.count
+install.packages("ff")
+library(ff)
+na.count(match(data2$steps, NA))
+na.count(data$steps)
+remove.packages("ff")
+authors <- data.frame( #
+    FirstName=c("Lorne", "Loren", "Robin",  #
+                  "Robin", "Billy"), #
+    LastName=c("Green", "Jaye", "Green",  #
+                 "Howe", "Jaye"), #
+    Age=c(82, 40, 45, 2, 40),  #
+    Income=c(1200000, 40000, 25000, 0, 27500),  #
+    Home=c("California", "Washington", "Washington",  #
+    	"Alberta", "Washington"))
+authors
+books <- data.frame( #
+    AuthorFirstName=c("Lorne", "Loren", "Loren", #
+        "Loren", "Robin", "Rich"), #
+    AuthorLastName=c("Green", "Jaye", "Jaye", "Jaye", #
+    	"Green", "Calaway"), #
+    Book=c("Bonanza", "Midwifery", "Gardening", #
+	"Perennials", "Who_dun_it?", "Support"))
+books
+merge(authors, books, by.x=c("FirstName", "LastName"), #
+      by.y=c("AuthorFirstName", "AuthorLastName"),  #
+      all.x=TRUE)
+merge(authors, books, by=1:2)
+merge(authors, books, by=1:3)
+merge(authors, books, by=4)
+merge(authors, books, by=x)
+merge(authors, books, by.x
+merge(authors, books, by.x)
+merge(authors, books)
+merge(authors, books, by.x = 1, by.y = 1, incomparables = c("Loren"))
+merge(authors, books, by.x = 1, by.y = 1)
+NA_count <- sum(is.na(activity))
+NA_count <- sum(is.na(data))
+NA_count
+data
+avg_steps
+avg_steps[which.max(avg_steps),]
+averagePerInterval <- ddply(dataNaOmit, .(interval), summarise, steps=mean(steps))
+data$steps > 206.0
+sum(data$steps > 206.0)
+sum(data$steps > 206.0, na.rm=T)
+sum(avg_steps > 206.0, na.rm=T)
+which(avg_steps > 206.0)
+avg_steps[515]
+which(avg_steps > 206.0, na.rm=T)
+sum(is.na(avg_steps))
+which(avg_steps > 206.0)
+avg_steps[104]
+plot(avg_steps)
+?tapply
+total_steps
+date()
+?date
+library(knitr)
+knit2html()
+?knit2html
+knit2html("PA1_template.Rmd")

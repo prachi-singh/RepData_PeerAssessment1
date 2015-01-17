@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 ###Introduction
 Provided for the assignment is a CSV file (zip compressed) of readings from a subject's personal activity monitoring device. Data is collected over a 2-month period. Device records number of steps taken by the subject in every 5-minute interval throughout the day.
 
@@ -95,7 +90,7 @@ abline(v=step_median, col="orange", lwd=3)
 legend(x="topright", legend=c("mean", "median"), col=c("purple", "orange"), bty="n", lwd=3)
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 
 ## What is the average daily activity pattern?
@@ -115,7 +110,7 @@ axis(2)
 axis(1, at=0:6*4, labels=paste(0:6*4, ":00", sep=""))
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 Calculate the interval in which maximum number of steps occurs.
 
@@ -195,7 +190,7 @@ imputestep_median
 ## [1] 10766.19
 ```
 
-The following histogram graphically shows the total number of steps, mean and median of the new dataset `imputedata`. The mean value of the total number of steps taken per day (1.0766189 &times; 10<sup>4</sup>) is highlighted by a vertical red line, the median (1.0766189 &times; 10<sup>4</sup>) by a vertical green line. The mean and the median overlap, and the peak of days with no recorded steps is gone. Both values have increased compared to the original data set. The increase of the mean, however, is much stronger.
+The following histogram graphically shows the total number of steps, mean and median of the new dataset `imputedata`. The mean value of the total number of steps taken per day (1.0766189\times 10^{4}) is highlighted by a vertical red line, the median (1.0766189\times 10^{4}) by a vertical green line. The mean and the median overlap, and the peak of days with no recorded steps is gone. Both values have increased compared to the original data set. The increase of the mean, however, is much stronger.
 
 
 ```r
@@ -208,7 +203,7 @@ abline(v=imputestep_median, col="green", lwd=3, lty=2)
 legend(x="topright", legend=c("mean", "median"), col=c("red", "green"), bty="n", lwd=3)
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
 
 
 Calculate sum of total steps in original data and compare it to sum of steps after adding typical values for NAs.
@@ -230,7 +225,7 @@ sum(imputedata$steps) #sum of steps in imputed data set after adding typical val
 ## [1] 656737.5
 ```
 
-Due to imputation, the total sum of steps in these two months increases from 570608 to 6.5673751 &times; 10<sup>5</sup>.
+Due to imputation, the total sum of steps in these two months increases from 570608 to 6.5673751\times 10^{5}.
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
@@ -253,9 +248,9 @@ g + geom_line() + facet_grid(weekday ~ .) +
         labs(title="Daily activity pattern")
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
 
 There is a distinct peak in the weekday mornings leading to higher morning activity on the weekdays. However, overall activity is higher on the weekends. Based on this differential weekday/weekend activity patterns, a more precise imputation strategy could be devised to use weekend interval averages for imputing weekend activity and weekday interval averages for imputing weekday activity. 
 
 ==================  
-Created by Prachi Singh on Sat Jan 17 02:30:24 2015
+Created by Prachi Singh on Sat Jan 17 02:36:06 2015
